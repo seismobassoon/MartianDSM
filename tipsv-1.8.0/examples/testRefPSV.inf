@@ -1,0 +1,94 @@
+c parameter file for tipsv.f
+c
+c parameter for the periodic range
+  32768 16384   tlen(s), np
+c relative error (see GT95 eq. 6.2)
+   1.d-2   re	
+c ampratio using in grid cut-off (1.d-10 is recommended)
+   1.d-10   ratc	
+c ampratio using in l-cutoff
+   1.d-5    ratl
+c artificial damping for wrap-around (see GO94 5.1)
+   1.d-2   
+c parameter for the trial function
+c imin imax  
+    0  1024 
+c parameter for the structure
+c
+           5
+     0.0000    10.0000     6.8448    -0.0000     0.0000     0.0000
+     5.5483     0.0000     0.0000     0.0000
+     5.5483     0.0000     0.0000     0.0000
+     0.0000     0.0000     0.0000     0.0000
+     0.0000     0.0000     0.0000     0.0000
+     1.0000     0.0000     0.0000     0.0000     0.0000 10000.0000
+    10.0000  1693.3200     6.8460     0.1354    -2.8069     0.1748
+     5.5494     0.1241    -2.5972     0.1024
+     5.5494     0.1241    -2.5972     0.1024
+     0.0000     0.0000     0.0000     0.0000
+     0.0000     0.0000     0.0000     0.0000
+     1.0000     0.0000     0.0000     0.0000     0.0000 10000.0000
+  1693.3200  3317.1910     4.6113     0.1629    -3.1559     1.6994
+    12.3197    -3.6202    -4.1849     2.5183
+    12.3197    -3.6202    -4.1849     2.5183
+     4.9018     5.4973   -14.1617     7.7939
+     4.9018     5.4973   -14.1617     7.7939
+     1.0000     0.0000     0.0000     0.0000   127.4000 10000.0000
+  3317.1910  3321.7260     3.0764    -0.0000     0.0000     0.0000
+     6.6016     0.0000     0.0000     0.0000
+     6.6016     0.0000     0.0000     0.0000
+     3.4436    -0.0000     0.0000     0.0000
+     3.4436    -0.0000     0.0000     0.0000
+     1.0000     0.0000     0.0000     0.0000   119.0000 10000.0000
+  3321.7260  3389.5000     2.9540     0.0000     0.0000     0.0000
+     5.9896     0.0000     0.0000     0.0000
+     5.9896     0.0000     0.0000     0.0000
+     3.0356     0.0000     0.0000     0.0000
+     3.0356     0.0000     0.0000     0.0000
+     1.0000     0.0000     0.0000     0.0000   600.0000 10000.0000
+c
+c 
+c parameter for the source
+   3384.5   5.6 137.4  r0(km), lat, lon (deg)
+    0.e0 -1.19e-41 1.94e-25 -3.87e-25 3.16e-9 3.87e-25   mt (Mrr, Mrt, Mrp, Mtt, Mtp, Mpp) (1.e25 dyne cm)
+c parameter for the station
+   18   nr
+    4.5 136.0
+    0.0 20.0
+    0.0 30.0
+    0.0 40.0
+    0.0 50.0
+    0.0 60.0
+    0.0 70.0
+    0.0 80.0
+    0.0	90.0
+    0.0 100.0
+    0.0 110.0
+    0.0	120.0
+    0.0 130.0
+    0.0 140.0
+    0.0 150.0
+    0.0 160.0
+    0.0 170.0
+    0.0 180.0
+c parameter for the data file
+examples/STA.Refpsv.spc
+examples/02.Refpsv.spc
+examples/03.Refpsv.spc
+examples/04.Refpsv.spc
+examples/05.Refpsv.spc
+examples/06.Refpsv.spc
+examples/07.Refpsv.spc
+examples/08.Refpsv.spc
+examples/09.Refpsv.spc
+examples/10.Refpsv.spc
+examples/11.Refpsv.spc
+examples/12.Refpsv.spc
+examples/13.Refpsv.spc
+examples/14.Refpsv.spc
+examples/15.Refpsv.spc
+examples/16.Refpsv.spc
+examples/17.Refpsv.spc
+examples/18.Refpsv.spc
+c
+end

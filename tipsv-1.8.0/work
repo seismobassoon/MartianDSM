@@ -1,0 +1,55 @@
+  32768 16384   tlen(s), np                                                     
+   1.d-2   re	                                                                  
+   1.d-10   ratc	                                                               
+   1.d-5    ratl                                                                
+   1.d-2                                                                        
+    0  16384                                                                    
+3                                                                               
+  1693.3200  3317.1910     4.6113     0.1629    -3.1559     1.6994              
+     4.9018     5.4973   -14.1617     7.7939                                    
+     4.9018     5.4973   -14.1617     7.7939   127.4000                         
+  3317.1910  3321.7260     3.0764    -0.0000     0.0000     0.0000              
+     3.4436    -0.0000     0.0000     0.0000                                    
+     3.4436    -0.0000     0.0000     0.0000   119.0000                         
+  3321.7260  3389.5000     2.9540     0.0000     0.0000     0.0000              
+     3.0356     0.0000     0.0000     0.0000                                    
+     3.0356     0.0000     0.0000     0.0000   600.0000                         
+   3384.5   5.6 137.4  r0(km), lat, lon (deg)                                   
+    0.e0 -1.19e-41 1.94e-25 -3.87e-25 3.16e-9 3.87e-25   mt (Mrr, Mrt, Mrp, Mtt,
+   18   nr                                                                      
+    4.5 136.0                                                                   
+    0.0 20.0                                                                    
+    0.0 30.0                                                                    
+    0.0 40.0                                                                    
+    0.0 50.0                                                                    
+    0.0 60.0                                                                    
+    0.0 70.0                                                                    
+    0.0 80.0                                                                    
+    0.0	90.0                                                                    
+    0.0 100.0                                                                   
+    0.0 110.0                                                                   
+    0.0	120.0                                                                   
+    0.0 130.0                                                                   
+    0.0 140.0                                                                   
+    0.0 150.0                                                                   
+    0.0 160.0                                                                   
+    0.0 170.0                                                                   
+    0.0 180.0                                                                   
+examples/STA.Refsh.spc                                                          
+examples/02.Refsh.spc                                                           
+examples/03.Refsh.spc                                                           
+examples/04.Refsh.spc                                                           
+examples/05.Refsh.spc                                                           
+examples/06.Refsh.spc                                                           
+examples/07.Refsh.spc                                                           
+examples/08.Refsh.spc                                                           
+examples/09.Refsh.spc                                                           
+examples/10.Refsh.spc                                                           
+examples/11.Refsh.spc                                                           
+examples/12.Refsh.spc                                                           
+examples/13.Refsh.spc                                                           
+examples/14.Refsh.spc                                                           
+examples/15.Refsh.spc                                                           
+examples/16.Refsh.spc                                                           
+examples/17.Refsh.spc                                                           
+examples/18.Refsh.spc                                                           
