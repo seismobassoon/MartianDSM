@@ -133,7 +133,9 @@ cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
       implicit none
       real*8 flattening,pi
 c      parameter ( flattening = 1.d0 / 297.d0 )
-      parameter ( flattening = 1.d0 / 298.25d0)
+c      parameter ( flattening = 1.d0 / 298.25d0)
+
+      parameter (flattening= 0.00589d0 ) ! pour le mars
       parameter ( pi = 3.1415926535897932d0 )
       real*8 geocentric, geodetic
       
