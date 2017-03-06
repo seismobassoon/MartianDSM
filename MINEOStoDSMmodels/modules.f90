@@ -15,7 +15,7 @@ module parameters
 
   ! DSM
 
-  character(120) :: psvmodel
+  character(120) :: psvmodel,shmodel
   integer :: nzone
   double precision, allocatable, dimension (:) :: vrmin, vrmax,qmuD,qkappaD
   integer, allocatable, dimension (:) :: irmin, irmax,irlength

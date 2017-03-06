@@ -140,6 +140,7 @@ program modelConverter
   enddo
 
   call writepsvmodel
+  call writeshmodel
         
 end program modelConverter
   
