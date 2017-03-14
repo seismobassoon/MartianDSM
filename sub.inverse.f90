@@ -76,7 +76,7 @@ subroutine inverseLU(nmax,a,ia)
         write(*,*) "LU decomposition error!"
         write(*,*) "Input matrix may be not regular."
         write(*,*) "it has eigen values near 0."
-        stop
+        !stop
      endif
   enddo
   

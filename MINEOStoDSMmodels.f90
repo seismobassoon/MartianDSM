@@ -1,7 +1,7 @@
 program modelConverter
   ! Nobuaki Fuji for DSM Kernel
-  !  July 2016, NF, Institut de Physique du Globe de Paris
-  !  September 2016, NF, IPGP
+  !  July 2016, Institut de Physique du Globe de Paris
+  
   use parameters
   implicit none
   integer :: i,j,k,kmax,iirlength
@@ -14,7 +14,7 @@ program modelConverter
   call getarg(2,psvmodel)
   psvmodel = trim(psvmodel)
   call getarg(3,shmodel)
-  shmodel = trim(shmodel)
+  psvmodel = trim(shmodel)
 
   call readMINEOScard
 
@@ -63,10 +63,13 @@ program modelConverter
   vsvD = 0.d0
   vshD = 0.d0
   !etaD = 0.d0
+
+  print *, "ca marche"
   
  
   do j = 1,nzone
 
+     print *, vrmin(j), vrmax(j)
      !print *,j,irmin(j),irmax(j),vrmin(j),vrmax(j),irlength(j)
      iirlength = irlength(j)
      kmax = min(4,iirlength)
@@ -96,6 +99,8 @@ program modelConverter
 
      ata = matmul(at,a)
      
+
+     print *, j
 
      call inverseLU(kmax,ata,atainv)
 
@@ -142,7 +147,8 @@ program modelConverter
   enddo
 
   call writepsvmodel
-  call writeshmodel       
+  call writeshmodel
+        
 end program modelConverter
   
   

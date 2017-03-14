@@ -73,7 +73,7 @@ c source parameter
 	  read(11,*) lat(i),lon(i)
 	  stlat = lat(i)
 	  stlon = lon(i)
-	  call translat(stlat,stlat)
+	  !call translat(stlat,stlat)
 	  call calthetaphi(eqlattmp,eqlon,stlat,stlon,theta(i),phi(i))
   150	continue
 	do 160 i=1,nr
