@@ -1,15 +1,15 @@
 # makefile for dat2sac
 
-OBJS = dat2sac.o
 CC = gcc
 #CC = /opt/intel/cc/9.0/bin/icc
 CFLAGS = -L/usr/lib -g
+OBJS = dat2sac.o
 
 all:
 	make dat2sac
 
 dat2sac: $(OBJS)
-	 $(CC) $(CFLAGS) $(OBJS) $(SACDIR)/lib/sacio.a -o dat2sac
+	 $(CC) $(CFLAGS) $(OBJS) -o dat2sac
 .c.o:
 	$(CC) -c $(CFLAGS) $<
 

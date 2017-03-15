@@ -57,7 +57,7 @@ c parameter for the station
      45.0   10.0   theta,phi (degree)
      90.0   10.0   theta,phi (degree)
 c parameter for the output file
-examples/test1.1.spc
-examples/test1.2.spc
+examples5/test1.1.spc
+examples5/test1.2.spc
 c
 end
