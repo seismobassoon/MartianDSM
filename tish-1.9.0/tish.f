@@ -15,7 +15,7 @@ c ----------------------------<<constants>>----------------------------
 	integer maxnzone,maxnr,maxlmax,ilog
 	parameter ( pi=3.1415926535897932d0 )
 	parameter ( maxnlay = 88300 )
-	parameter ( maxnzone = 15 )
+	parameter ( maxnzone = 107 )
 	parameter ( maxnr = 600 )
 	parameter ( maxlmax = 80000 )
 	parameter ( ilog = 0 )

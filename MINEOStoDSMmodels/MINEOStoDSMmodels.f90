@@ -9,6 +9,7 @@ program modelConverter
   double precision, allocatable, dimension (:,:) :: a,at,ata,atainv
   double precision, allocatable, dimension (:) :: tmparray,tmparray2
   double precision :: rnormalised1,rnormalised2,coef
+  integer :: liquidlayers
   
   call getarg(1,model1d)
   model1d = trim(model1d)
@@ -22,7 +23,8 @@ program modelConverter
   print *, psvmodel,shmodel
   
   nzone = 0
-
+  liquidlayers = 0
+  
   do i = 1,nrmod-1
      if(rmod(i).ne.rmod(i+1)) nzone = nzone +1
   enddo
@@ -78,14 +80,24 @@ program modelConverter
         vphD(2,j)=(vph(i+1)-vph(i))/(rnormalised2-rnormalised1)
         vphD(1,j)=vph(i)-vphD(2,j)*rnormalised1
 
-        j=j+1
+       
         
-        
+        if(vsh(i).eq.0.d0) liquidlayers = j
+
+         j=j+1
      endif
   enddo
  
 
   call writepsvmodel
+  nzone=nzone-liquidlayers
+
+  vrmin(1:nzone)=vrmin(liquidlayers+1:liquidlayers+nzone)
+  vrmax(1:nzone)=vrmax(liquidlayers+1:liquidlayers+nzone)
+  rrhoD(:,1:nzone)=rrhoD(:,liquidlayers+1:liquidlayers+nzone)
+  vsvD(:,1:nzone)=vsvD(:,liquidlayers+1:liquidlayers+nzone)
+  vshD(:,1:nzone)=vshD(:,liquidlayers+1:liquidlayers+nzone)
+  qmuD(1:nzone)=qmuD(liquidlayers+1:liquidlayers+nzone)
   call writeshmodel
         
 end program modelConverter
