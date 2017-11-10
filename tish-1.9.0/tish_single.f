@@ -26,7 +26,7 @@ c variable for the trial function
 	integer nnlayer,nlayer(maxnzone)
 	integer l,m
 	real*8 ra(maxnlay+maxnzone+1),gra(3),plm(3,0:3,maxnr)
-	complex*16 bvec(3,-2:2,maxnr)
+	complex*16 bvec(3,-2:2,maxnr),rvec(1:3,-2:2)
 c variable for the structure
 	integer nzone
 	integer ndc,vnp
@@ -46,7 +46,7 @@ c variable for the periodic range
 	complex*16 u(3,maxnr)
 c variable for the source
 	integer spn,ns
-	real*8 r0,mt(3,3),spo,mu0,eqlat,eqlon
+	real*8 r0,mt(3,3),singleforce(3),spo,mu0,eqlat,eqlon
 c variable for the station
 	integer nr,ir
 	real*8 theta(maxnr),phi(maxnr)
@@ -81,10 +81,10 @@ c
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c *************** Inputting and computing the parameters ***************
 c --- inputting parameter ---
-	call pinput2( maxnlay,maxnzone,maxnr,re,ratc,ratl,
+	call pinput2_single( maxnlay,maxnzone,maxnr,re,ratc,ratl,
      &       tlen,np,omegai,imin,imax,
      &       nzone,vrmin,vrmax,rrho,vsv,vsh,qmu,
-     &       r0,eqlat,eqlon,mt,nr,theta,phi,lat,lon,output )
+     &       r0,eqlat,eqlon,singleforce,nr,theta,phi,lat,lon,output )
 c --- computing the required parameters ---
 c computing and checking the parameters
 	rmin = vrmin(1)
@@ -235,11 +235,15 @@ c --- Initializing the matrix elements
      &                coef(spn),ga )
                  call overlap( 2,ga,ga2 )
 c
-                 do m=-2,2	! m-loop
+                 do m=-1,1	! m-loop
                     if ( ( m.ne.0 ).and.( iabs(m).le.iabs(l) ) ) then
                        call cvecinit( nn,g )
-                       call calg2( l,m,spo,r0,mt,mu0,coef(spn),
-     &                      ga,aa,ga2,gdr,g( isp(spn) ) )
+c                       call calg2( l,m,spo,r0,mt,mu0,coef(spn),
+c     &                      ga,aa,ga2,gdr,g( isp(spn) ) )
+		       g(nn)=-dconjg(rvec(2,m)*singleforce(2)+rvec(3,m)
+     &                        *singleforce(3))/dcmplx(lsq)      
+		       
+		       
                        if( mod(l,100).eq.0) then
                           if ( (m.eq.-2).or.(m.eq.-l) ) then
                              call dclisb0( a,nn,1,lda,g,eps,dr,z,ier)
@@ -391,6 +395,12 @@ c ***** Computing the trial function *****
                     call calbvec( l,theta(ir),phi(ir),
      &                   plm(1,0,ir),bvec(1,-2,ir) )
                  enddo
+
+
+		 rvec = dcmplx(0.d0)
+		 call calbveczero(l,rvec(1,-2))
+
+
 c computing the coefficient matrix elements
 c --- Initializing the matrix elements
                  call cmatinit( lda,nn,a )
@@ -405,11 +415,15 @@ c     &                    coef(spn),ga )
      &                coef(spn),ga )
                  call overlap( 2,ga,ga2 )
 c
-                 do m=-2,2	! m-loop
+                 do m=-1,1	! m-loop
                     if ( ( m.ne.0 ).and.( iabs(m).le.iabs(l) ) ) then
                        call cvecinit( nn,g )
-                       call calg2( l,m,spo,r0,mt,mu0,coef(spn),
-     &                      ga,aa,ga2,gdr,g( isp(spn) ) )
+              
+
+c                       call calg2( l,m,spo,r0,mt,mu0,coef(spn),
+c     &                      ga,aa,ga2,gdr,g( isp(spn) ) )
+		       g(nn)=-dconjg(rvec(2,m)*singleforce(2)+rvec(3,m)
+     &                            *singleforce(3))/dcmplx(lsq)      
                        if( mod(l,100).eq.0) then
                           if ( (m.eq.-2).or.(m.eq.-l) ) then
                              call dclisb0( a,nn,1,lda,g,eps,dr,z,ier)
