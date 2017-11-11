@@ -21,11 +21,16 @@ cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 	real*8 eqlat,eqlon,stlat,stlon,eqlattmp
 	character*80 output(*)
 	integer i
-	character*80 dummy,tmpfile
+	character*80 dummy,tmpfile,tmpfile0
 c
-	data tmpfile / 'work' /
+c	data tmpfile / 'work' /
 c
 c temporary file open
+
+	call getarg(1,tmpfile0)
+	call getarg(2,tmpfile)
+
+	open(unit=5,file=tmpfile0,status='old')
 	open( unit=11, file=tmpfile, status='unknown' )
 c writing to the temporary file
   100	continue
@@ -38,7 +43,8 @@ c writing to the temporary file
   120	continue
 c temporary file close
 	close(11)
-c 
+	close(5)
+c       
 c temporary file open
 	open( unit=11, file=tmpfile, status='unknown' )
 c reading the parameter
@@ -109,11 +115,16 @@ cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 	real*8 eqlat,eqlon,stlat,stlon,eqlattmp
 	character*80 output(*)
 	integer i
-	character*80 dummy,tmpfile
+	character*80 dummy,tmpfile,tmpfile0
 c
-	data tmpfile / 'work' /
+c	data tmpfile / 'work' /
 c
 c temporary file open
+
+	call getarg(1,tmpfile0)
+	call getarg(2,tmpfile)
+
+	open(unit=5,file=tmpfile0,status='old')
 	open( unit=11, file=tmpfile, status='unknown' )
 c writing to the temporary file
   100	continue
@@ -126,6 +137,7 @@ c writing to the temporary file
   120	continue
 c temporary file close
 	close(11)
+	close(5)
 c 
 c temporary file open
 	open( unit=11, file=tmpfile, status='unknown' )
